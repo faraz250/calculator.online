@@ -1,0 +1,505 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Calculator.online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Poppins", sans-serif;
+    }
+   /* Bubble effect container */
+   .bubble-container {
+     position: relative;
+     overflow: visible;
+     cursor: pointer;
+     background-color: #f8f9fd;
+     border: 1px solid rgba(125, 36, 199, 0.9);
+     border-radius: 0.375rem; /* rounded-md */
+     padding: 0.75rem; /* p-3 */
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+     text-decoration: none;
+     color: inherit;
+   }
+   .bubble-container:hover {
+     transform: scale(1.05);
+     filter: brightness(1.05);
+     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+     z-index: 10;
+   }
+   /* Bubble circles */
+   .bubble-container .bubble {
+     position: absolute;
+     border-radius: 50%;
+     background: rgba(128, 90, 213, 0.3);
+     opacity: 0;
+     pointer-events: none;
+     transition: opacity 0.3s ease, transform 0.3s ease;
+   }
+   .bubble-container:hover .bubble {
+     opacity: 1;
+   }
+   /* Different bubble sizes and positions */
+   .bubble-1 {
+     width: 20px;
+     height: 20px;
+     top: -10px;
+     left: 10px;
+     transform: translate(0, 0);
+   }
+   .bubble-2 {
+     width: 15px;
+     height: 15px;
+     top: 10px;
+     right: -10px;
+     transform: translate(0, 0);
+   }
+   .bubble-3 {
+     width: 10px;
+     height: 10px;
+     bottom: 5px;
+     left: 20px;
+     transform: translate(0, 0);
+   }
+   .bubble-4 {
+     width: 12px;
+     height: 12px;
+     bottom: 15px;
+     right: 15px;
+     transform: translate(0, 0);
+   }
+   /* Animate bubbles on hover */
+   .bubble-container:hover .bubble-1 {
+     transform: translate(-10px, -15px);
+     opacity: 0.6;
+   }
+   .bubble-container:hover .bubble-2 {
+     transform: translate(15px, -10px);
+     opacity: 0.5;
+   }
+   .bubble-container:hover .bubble-3 {
+     transform: translate(-15px, 10px);
+     opacity: 0.4;
+   }
+   .bubble-container:hover .bubble-4 {
+     transform: translate(10px, 15px);
+     opacity: 0.5;
+   }
+  </style>
+ </head>
+ <body class="bg-white p-6 sm:p-10 flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="max-w-[1200px] mx-auto mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+   <div class="text-xl font-semibold text-gray-900">
+    Calculator.online
+   </div>
+   <div class="flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
+    <input id="searchInput" type="search" placeholder="Search calculator by category" class="w-full max-w-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600" oninput="filterCategories()"/>
+    <button class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800 select-none">Search</button>
+   </div>
+  </header>
+  <!-- Main content -->
+  <div class="max-w-[1200px] mx-auto flex-grow">
+   <h2 class="text-black text-[20px] font-normal flex items-center gap-2 mb-6">
+    <i class="fas fa-plane-departure text-purple-700"></i>
+    Top Calculator Categories
+   </h2>
+   <div id="categoriesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <!-- Card 1 with bubble effect -->
+    <a href="top_financial_calculator.html" class="bubble-container" data-category="financial" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Financial 
+       <br/>
+       Calculator
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       All
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="All Financial Calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/mgmRHdV5/finance-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 2 -->
+    <a href="top_health&_fitness_calculator.html" class="bubble-container" data-category="fitness & health" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Fitness 
+       <br/>
+       & Health
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculators
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Fitness & Health Calculators" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/43B741ps/health-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 3 -->
+    <a href="top_math_calculator.html" class="bubble-container" data-category="math" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       All
+       <br/>
+       Math
+       <br/>
+       Related 
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculators
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Math Calculators" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/FKgqYYK9/Math-Calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 4 -->
+    <a href="top_building_calculator.html" class="bubble-container" data-category="housing & building" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Housing
+       <br/>
+       & Building
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Housing & Building" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/d1g8vBKD/building-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 5 -->
+    <a href="day_time_calculator.html" class="bubble-container" data-category="day & time" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Day
+       <br/>
+       & Time
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Day & Time" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/sg3HtVcq/day-and-time-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 6 -->
+    <a href="top_electronic_circuits_calculator.html" class="bubble-container" data-category="electronics & circuits" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Electronics
+       <br/>
+       & Circuits
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Electronics & Circuits Calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/vHndQH5m/electronic-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 7 -->
+    <a href="top_geometry_calculator.html" class="bubble-container" data-category="geometry" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Geometry
+       <br/>
+       Calculator
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       All
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Geometry calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/fWjr5t7m/geometry-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 8 -->
+    <a href="top_internet_calculator.html" class="bubble-container" data-category="internet" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Internet /
+       <br/>
+       Calculator
+       <br/>
+      
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       All
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Internet" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/kMfyBxF1/internet-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 9 -->
+    <a href="top_entertainment_anecdotes_calculator.html" class="bubble-container" data-category="entertainment & anecdotes" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Entertainment
+       <br/>
+       &
+       <br/>
+       Anecdotes
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Entertainment & Anecdotes" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/VLt53w6q/love-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 10 -->
+    <a href="top_statistics_calculator.html" class="bubble-container" data-category="statistics" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Statistics 
+       <br/>
+       All
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Statistics Calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/6pY4BXsy/stataics-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 11 -->
+    <a href="top_transportation_calculator.html" class="bubble-container" data-category="transportation" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       All
+       <br/>
+       Transportation
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculators
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Transportation Calculators" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/90Fv5Zy4/transport-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 12 -->
+    <a href="top_everyday_utility_calculator.html" class="bubble-container" data-category="everyday & utility" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Everyday
+       <br/>
+       Utility
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Everyday & Utility Calculators" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/0NV4GrTP/utility-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 13 -->
+    <a href="top_various_measurements_units_calculator.html" class="bubble-container" data-category="various & measurement unit" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Various
+       <br/>
+       Measurements Units
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculators
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Various Measurements Units" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/9XgWXQz3/various-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 14 -->
+    <a href="annual_income_calculator.html" class="bubble-container" data-category="annual income" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Annual
+       <br/>
+       Income
+       <br/>
+       
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Annual Income Calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/N0YRb46w/ce291346-7ef9-477c-b44c-255119759a9c.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 15 -->
+    <a href="https://example.com/gift-box" class="bubble-container" data-category="test & grade" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Test
+       <br/>
+       Grade
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculator
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Test & Grade Calculator" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/59pKzHM0/97cc370f-6565-4c48-a8e1-21041059d044.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+    <!-- Card 16 -->
+    <a href="https://example.com/paper-bag" class="bubble-container" data-category="other calculators" target="_blank" rel="noopener noreferrer">
+     <div class="text-[10px] leading-[12px] text-black/80 relative z-10">
+      <div>
+       Other
+       <br/>
+       All
+      </div>
+      <div class="mt-1 font-normal text-[12px] leading-[14px]">
+       Calculators
+      </div>
+      <div class="mt-2 text-[12px]">
+       <i class="fas fa-arrow-right"></i>
+      </div>
+     </div>
+     <img alt="Other Calculators" class="w-[120px] h-[70px] object-contain relative z-10" height="70" src="https://i.postimg.cc/2j04zh4z/various-measurement-calculator.png" width="120"/>
+     <span class="bubble bubble-1"></span>
+     <span class="bubble bubble-2"></span>
+     <span class="bubble bubble-3"></span>
+     <span class="bubble bubble-4"></span>
+    </a>
+   </div>
+  </div>
+  <footer class="bg-gray-100 text-gray-700 text-[13px] leading-[18px] mt-10 px-6 py-8 max-w-[1200px] mx-auto">
+   <p class="mb-4 max-w-4xl">
+    culator.online's sole focus is to provide fast, comprehensive, convenient, free online calculators in a plethora of areas. Currently, we have around 200 calculators to help you "do the math" quickly in areas such as finance, fitness, health, math, and others, and we are still developing more. Our goal is to become the one-stop, go-to site for people who need to make quick calculations. Additionally, we believe the internet should be a source of free information. Therefore, all of our tools and services are completely free, with no registration required.
+   </p>
+   <p class="mb-4 max-w-4xl">
+    We coded and developed each calculator individually and put each one through strict, comprehensive testing. However, please inform us if you notice even the slightest error – your input is extremely valuable to us. While most calculators on Calculator.net are designed to be universally applicable for worldwide usage, some are for specific countries only. For example, the Income Tax Calculator is for United States residents only.
+   </p>
+   <div class="flex flex-wrap gap-4 text-[12px] font-semibold mb-4 max-w-4xl">
+    <a href="#" class="hover:underline">
+     about us
+    </a>
+    <span>|</span>
+    <a href="#" class="hover:underline">
+     sitemap
+    </a>
+    <span>|</span>
+    <a href="#" class="hover:underline">
+     terms of use
+    </a>
+    <span>|</span>
+    <a href="#" class="hover:underline">
+     privacy policy
+    </a>
+   </div>
+   <div class="text-[12px] max-w-4xl">
+    © 2008 - 2025 calculator.net
+   </div>
+  </footer>
+  <script>
+   function filterCategories() {
+     const input = document.getElementById('searchInput').value.toLowerCase();
+     const cards = document.querySelectorAll('#categoriesGrid > a');
+     cards.forEach(card => {
+       const category = card.getAttribute('data-category').toLowerCase();
+       if (category.includes(input)) {
+         card.style.display = 'flex';
+       } else {
+         card.style.display = 'none';
+       }
+     });
+   }
+  </script>
+ </body>
+</html>
