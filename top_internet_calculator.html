@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex items-center gap-3 px-36 py-6">
+    <h1 class="font-semibold text-lg select-none">Calculator.online</h1>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 text-sm w-72 focus:outline-none focus:ring-2 focus:ring-purple-700"
+      aria-label="Search calculator by cc"
+    />
+    <button
+      id="searchBtn"
+      class="bg-purple-700 text-white text-sm font-semibold rounded-md px-5 py-2 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-700"
+      aria-label="Search"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="px-36">
+    <h2 class="text-lg font-normal mb-4">Top Internet Calculator</h2>
+    <section
+      id="calculatorSection"
+      class="border-4 border-purple-700 rounded-xl w-72 p-4 select-none"
+      aria-label="Internet Calculator category"
+    >
+      <h3 class="text-sm font-semibold mb-4">1.Internet Calculator</h3>
+      <nav class="flex flex-col gap-2" id="calculatorList">
+        <a
+          href="https://www.calculator.net/ip-subnet-calculator.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-gray-300 rounded-full text-blue-700 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >IP Subnet Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/password-generator.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-gray-300 rounded-full text-blue-700 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Password Generator</a
+        >
+        <a
+          href="https://www.calculator.net/bandwidth-calculator.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-gray-300 rounded-full text-blue-700 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Bandwidth Calculator</a
+        >
+      </nav>
+    </section>
+  </main>
+
+  <footer class="mt-20 border-t border-gray-300 pt-4 px-36 select-none">
+    <nav
+      class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-600 font-normal"
+      aria-label="Footer navigation"
+    >
+      <a href="https://www.calculator.net/about-us.html" target="_blank" rel="noopener noreferrer" class="hover:underline">about us</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/sitemap.html" target="_blank" rel="noopener noreferrer" class="hover:underline">sitemap</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/terms-of-use.html" target="_blank" rel="noopener noreferrer" class="hover:underline">terms of use</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/privacy-policy.html" target="_blank" rel="noopener noreferrer" class="hover:underline">privacy policy</a>
+      <span>|</span>
+      <span>© 2008 - 2025</span>
+      <a href="https://www.calculator.net" target="_blank" rel="noopener noreferrer" class="hover:underline">calculator.net</a>
+    </nav>
+  </footer>
+
+  <script>
+    const searchBtn = document.getElementById("searchBtn");
+    const searchInput = document.getElementById("searchInput");
+    const calculatorList = document.getElementById("calculatorList");
+
+    // Store original calculators as array of objects with real links
+    const calculators = [
+      {
+        name: "IP Subnet Calculator",
+        href: "https://www.calculator.net/ip-subnet-calculator.html",
+      },
+      {
+        name: "Password Generator",
+        href: "https://www.calculator.net/password-generator.html",
+      },
+      {
+        name: "Bandwidth Calculator",
+        href: "https://www.calculator.net/bandwidth-calculator.html",
+      },
+    ];
+
+    function renderCalculators(filtered) {
+      calculatorList.innerHTML = "";
+      if (filtered.length === 0) {
+        calculatorList.innerHTML =
+          '<p class="text-xs text-gray-500 italic">No calculators found.</p>';
+        return;
+      }
+      filtered.forEach((calc) => {
+        const a = document.createElement("a");
+        a.href = calc.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className =
+          "border border-gray-300 rounded-full text-blue-700 text-xs font-semibold text-center py-1.5 block hover:underline";
+        a.textContent = calc.name;
+        calculatorList.appendChild(a);
+      });
+    }
+
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        renderCalculators(calculators);
+        return;
+      }
+      const filtered = calculators.filter((calc) =>
+        calc.name.toLowerCase().includes(query)
+      );
+      renderCalculators(filtered);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

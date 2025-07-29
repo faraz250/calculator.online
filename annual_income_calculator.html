@@ -1,0 +1,480 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Annual Income Calculator
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+   /* Custom font for the top left text */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+    .font-inter-bold {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-black font-sans">
+  <header class="flex flex-wrap items-center justify-start gap-2 px-6 py-4">
+   <div class="font-inter-bold text-lg select-none">
+    Calculator.online
+   </div>
+   
+   <a href="https://calculator.net" class="bg-purple-700 text-white px-6 py-2 rounded-md text-sm font-extrabold hover:bg-purple-800">
+    Home
+   </a>
+  </header>
+  <main class="px-6 pb-10">
+   <h2 class="text-xl font-normal mb-4 select-none">
+    Annual Income Calculator
+   </h2>
+   <div class="flex flex-col md:flex-row gap-6">
+    <!-- Left panel -->
+    <section aria-label="Annual Income Calculator" class="border-2 border-purple-700 rounded-xl p-4 flex-1 max-w-md">
+     <h3 class="font-extrabold text-lg underline mb-4 select-none">
+      Annual Income Calculator
+     </h3>
+     <form id="incomeForm" class="space-y-4 border-2 border-purple-700 rounded-xl p-4" onsubmit="return calculateIncome()">
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="salary">
+        Salary Amount
+       </label>
+       <input aria-label="Salary Amount" class="border border-gray-300 rounded-md w-24 text-center py-1" id="salary" type="text" value="$50"/>
+      </div>
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="per">
+        Per
+       </label>
+       <select aria-label="Per period" class="border border-gray-300 rounded-md w-28 text-center py-1 font-semibold bg-white cursor-pointer" id="per" name="per">
+        <option value="hourly" selected>
+         Hourly
+        </option>
+        <option value="daily">
+         Daily
+        </option>
+        <option value="weekly">
+         Weekly
+        </option>
+        <option value="bi-weekly">
+         Bi-weekly
+        </option>
+        <option value="semi-monthly">
+         Semi-monthly
+        </option>
+        <option value="monthly">
+         Monthly
+        </option>
+        <option value="quarterly">
+         Quarterly
+        </option>
+        <option value="year">
+         Year
+        </option>
+       </select>
+      </div>
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="hours">
+        Hours per week
+       </label>
+       <input aria-label="Hours per week" class="border border-gray-300 rounded-md w-24 text-center py-1" id="hours" type="text" value="40"/>
+      </div>
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="days">
+        Days per week
+       </label>
+       <input aria-label="Days per week" class="border border-gray-300 rounded-md w-24 text-center py-1" id="days" type="text" value="5"/>
+      </div>
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="holidays">
+        Holidays per year
+       </label>
+       <input aria-label="Holidays per year" class="border border-gray-300 rounded-md w-24 text-center py-1" id="holidays" type="text" value="10"/>
+      </div>
+      <div class="flex justify-between items-center border-2 border-purple-700 rounded-xl px-6 py-3">
+       <label class="select-none" for="vacation">
+        Vacation days per year
+       </label>
+       <input aria-label="Vacation days per year" class="border border-gray-300 rounded-md w-24 text-center py-1" id="vacation" type="text" value="10"/>
+      </div>
+      <div class="flex justify-between mt-6 gap-6">
+       <button class="bg-purple-700 text-white rounded-xl px-10 py-3 font-semibold text-lg hover:bg-purple-800" type="submit">
+        Calculate
+       </button>
+       <button class="bg-purple-700 text-white rounded-xl px-10 py-3 font-semibold text-lg hover:bg-purple-800" id="clearBtn" type="button">
+        Clear
+       </button>
+      </div>
+     </form>
+    </section>
+    <!-- Right panel -->
+    <section aria-label="Result" class="border-2 border-purple-700 rounded-xl p-4 flex-1 max-w-lg" id="resultSection" style="background-color: white;">
+     <h3 class="font-extrabold text-lg underline mb-2 select-none">
+      Result
+     </h3>
+     <div class="flex mb-2 gap-2">
+      <button class="flex items-center gap-2 bg-purple-700 text-white rounded-xl px-6 py-3 font-semibold text-lg hover:bg-purple-800" type="button" id="saveImageBtn">
+       Save in Image
+       <img alt="Icon representing image save" aria-hidden="true" class="w-6 h-6" height="24" src="https://i.postimg.cc/0NK3NSrQ/imagicon.png" width="24"/>
+      </button>
+      <button class="flex items-center gap-2 bg-purple-700 text-white rounded-xl px-6 py-3 font-semibold text-lg hover:bg-purple-800" type="button" id="savePdfBtn">
+       Save in pdf
+       <img alt="Icon representing PDF save" aria-hidden="true" class="w-6 h-6" height="24" src="https://i.postimg.cc/k5hMtzQc/pdfcc.png" width="24"/>
+      </button>
+     </div>
+     <table class="w-full border-collapse border border-purple-700 text-center text-sm" id="resultTable">
+      <thead>
+       <tr>
+        <th class="border border-purple-700 px-3 py-2">
+        </th>
+        <th class="border border-purple-700 px-3 py-2 font-extrabold underline select-none">
+         Unadjusted
+        </th>
+        <th class="border border-purple-700 px-3 py-2 font-extrabold underline select-none">
+         Holidays &amp; vacation
+         <br/>
+         days adjusted
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Hourly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="hourlyUnadjusted">
+         $50.00
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="hourlyAdjusted">
+         $45.19
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Daily
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="dailyUnadjusted">
+         $400.00
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="dailyAdjusted">
+         $361.54
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Weekly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="weeklyUnadjusted">
+         $2,000
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="weeklyAdjusted">
+         $1,808
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Bi-weekly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="biweeklyUnadjusted">
+         $4,000
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="biweeklyAdjusted">
+         $3,615
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left font-semibold select-none">
+         Semi-monthly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="semimonthlyUnadjusted">
+         $4,333
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="semimonthlyAdjusted">
+         $3,917
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Monthly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="monthlyUnadjusted">
+         $8,667
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="monthlyAdjusted">
+         $7,833
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Quarterly
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="quarterlyUnadjusted">
+         $26,000
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="quarterlyAdjusted">
+         $23,500
+        </td>
+       </tr>
+       <tr>
+        <td class="border border-purple-700 px-3 py-2 text-left select-none">
+         Annual
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="annualUnadjusted">
+         $104,000
+        </td>
+        <td class="border border-purple-700 px-3 py-2 font-semibold select-none" id="annualAdjusted">
+         $94,000
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </section>
+   </div>
+  </main>
+  <footer class="border-t border-gray-300 mt-10 py-4 text-center text-xs text-gray-500 select-none">
+   about us | sitemap | terms of use | privacy policy © 2008 - 2025 calculator.net
+  </footer>
+  <script>
+   // Utility to parse currency input like "$50" or "50" to number 50
+   function parseCurrency(value) {
+     if (typeof value !== 'string') return 0;
+     return Number(value.replace(/[^0-9.-]+/g,"")) || 0;
+   }
+
+   // Format number as currency string with commas and 2 decimals
+   function formatCurrency(num) {
+     return '$' + num.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2});
+   }
+
+   function calculateIncome() {
+     // Constants
+     const WEEKS_PER_YEAR = 52;
+     const DAYS_PER_WEEK_DEFAULT = 5;
+     const HOURS_PER_DAY_DEFAULT = 8;
+     const WORKING_DAYS_PER_YEAR = WEEKS_PER_YEAR * DAYS_PER_WEEK_DEFAULT; // 260
+
+     // Get inputs
+     let salaryRaw = document.getElementById('salary').value.trim();
+     let perRaw = document.getElementById('per').value.trim().toLowerCase();
+     let hoursPerWeekRaw = document.getElementById('hours').value.trim();
+     let daysPerWeekRaw = document.getElementById('days').value.trim();
+     let holidaysRaw = document.getElementById('holidays').value.trim();
+     let vacationRaw = document.getElementById('vacation').value.trim();
+
+     // Parse inputs
+     let salary = parseCurrency(salaryRaw);
+     let hoursPerWeek = Number(hoursPerWeekRaw) || 40;
+     let daysPerWeek = Number(daysPerWeekRaw) || 5;
+     let holidays = Number(holidaysRaw) || 0;
+     let vacation = Number(vacationRaw) || 0;
+
+     // Calculate hours per day from hours per week and days per week
+     let hoursPerDay = daysPerWeek > 0 ? hoursPerWeek / daysPerWeek : HOURS_PER_DAY_DEFAULT;
+
+     // Calculate working days per year based on days per week
+     let workingDaysPerYear = WEEKS_PER_YEAR * daysPerWeek;
+
+     // Adjusted working days subtract holidays and vacation
+     let adjustedWorkingDays = workingDaysPerYear - holidays - vacation;
+
+     // Variables to hold hourly rate and daily rate (unadjusted)
+     let hourlyRate = 0;
+     let dailyRate = 0;
+
+     // Determine hourlyRate and dailyRate based on input "per"
+     // The input "per" can be "year", "hour", "day", "week", "bi-weekly", "semi-monthly", "monthly", "quarterly"
+     // We convert all to hourly and daily rates first
+
+     switch(perRaw) {
+       case 'hourly':
+         hourlyRate = salary;
+         dailyRate = hourlyRate * hoursPerDay;
+         break;
+       case 'daily':
+         dailyRate = salary;
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'weekly':
+         // weekly salary = dailyRate * daysPerWeek
+         dailyRate = salary / daysPerWeek;
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'bi-weekly':
+         // bi-weekly salary = weekly salary * 2
+         // weekly salary = dailyRate * daysPerWeek
+         // so dailyRate = biweekly salary / (2 * daysPerWeek)
+         dailyRate = salary / (2 * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'semi-monthly':
+         // semi-monthly = twice a month = 24 pay periods
+         // annual salary = semi-monthly * 24
+         // dailyRate = annual / (WEEKS_PER_YEAR * daysPerWeek)
+         let annualFromSemiMonthly = salary * 24;
+         dailyRate = annualFromSemiMonthly / (WEEKS_PER_YEAR * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'monthly':
+         // monthly = 12 pay periods
+         // annual = monthly * 12
+         let annualFromMonthly = salary * 12;
+         dailyRate = annualFromMonthly / (WEEKS_PER_YEAR * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'quarterly':
+         // quarterly = 4 pay periods
+         // annual = quarterly * 4
+         let annualFromQuarterly = salary * 4;
+         dailyRate = annualFromQuarterly / (WEEKS_PER_YEAR * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       case 'year':
+         // annual salary given
+         // dailyRate = annual / (WEEKS_PER_YEAR * daysPerWeek)
+         dailyRate = salary / (WEEKS_PER_YEAR * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+       default:
+         // If unknown, assume annual
+         dailyRate = salary / (WEEKS_PER_YEAR * daysPerWeek);
+         hourlyRate = dailyRate / hoursPerDay;
+         break;
+     }
+
+     // Calculate unadjusted values (ignore holidays and vacation)
+     let unadjustedHourly = hourlyRate;
+     let unadjustedDaily = dailyRate;
+     let unadjustedWeekly = unadjustedDaily * daysPerWeek;
+     let unadjustedBiWeekly = unadjustedWeekly * 2;
+     let unadjustedSemiMonthly = (unadjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 24;
+     let unadjustedMonthly = (unadjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 12;
+     let unadjustedQuarterly = (unadjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 4;
+     let unadjustedAnnual = unadjustedDaily * daysPerWeek * WEEKS_PER_YEAR;
+
+     // Calculate adjusted values (subtract holidays and vacation)
+     let adjustedDaily = dailyRate * (adjustedWorkingDays / workingDaysPerYear);
+     let adjustedHourly = adjustedDaily / hoursPerDay;
+     let adjustedWeekly = adjustedDaily * daysPerWeek;
+     let adjustedBiWeekly = adjustedWeekly * 2;
+     let adjustedSemiMonthly = (adjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 24;
+     let adjustedMonthly = (adjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 12;
+     let adjustedQuarterly = (adjustedDaily * daysPerWeek * WEEKS_PER_YEAR) / 4;
+     let adjustedAnnual = adjustedDaily * daysPerWeek * WEEKS_PER_YEAR;
+
+     // Update the table with formatted values
+     document.getElementById('hourlyUnadjusted').textContent = formatCurrency(unadjustedHourly);
+     document.getElementById('hourlyAdjusted').textContent = formatCurrency(adjustedHourly);
+     document.getElementById('dailyUnadjusted').textContent = formatCurrency(unadjustedDaily);
+     document.getElementById('dailyAdjusted').textContent = formatCurrency(adjustedDaily);
+     document.getElementById('weeklyUnadjusted').textContent = formatCurrency(unadjustedWeekly);
+     document.getElementById('weeklyAdjusted').textContent = formatCurrency(adjustedWeekly);
+     document.getElementById('biweeklyUnadjusted').textContent = formatCurrency(unadjustedBiWeekly);
+     document.getElementById('biweeklyAdjusted').textContent = formatCurrency(adjustedBiWeekly);
+     document.getElementById('semimonthlyUnadjusted').textContent = formatCurrency(unadjustedSemiMonthly);
+     document.getElementById('semimonthlyAdjusted').textContent = formatCurrency(adjustedSemiMonthly);
+     document.getElementById('monthlyUnadjusted').textContent = formatCurrency(unadjustedMonthly);
+     document.getElementById('monthlyAdjusted').textContent = formatCurrency(adjustedMonthly);
+     document.getElementById('quarterlyUnadjusted').textContent = formatCurrency(unadjustedQuarterly);
+     document.getElementById('quarterlyAdjusted').textContent = formatCurrency(adjustedQuarterly);
+     document.getElementById('annualUnadjusted').textContent = formatCurrency(unadjustedAnnual);
+     document.getElementById('annualAdjusted').textContent = formatCurrency(adjustedAnnual);
+
+     return false; // prevent form submission
+   }
+
+   // Clear button resets form inputs to empty and clears results
+   document.getElementById('clearBtn').addEventListener('click', () => {
+     // Clear all input fields
+     document.getElementById('salary').value = '';
+     document.getElementById('per').value = 'hourly';
+     document.getElementById('hours').value = '';
+     document.getElementById('days').value = '';
+     document.getElementById('holidays').value = '';
+     document.getElementById('vacation').value = '';
+
+     // Clear result table cells
+     const resultIds = [
+       'hourlyUnadjusted', 'hourlyAdjusted',
+       'dailyUnadjusted', 'dailyAdjusted',
+       'weeklyUnadjusted', 'weeklyAdjusted',
+       'biweeklyUnadjusted', 'biweeklyAdjusted',
+       'semimonthlyUnadjusted', 'semimonthlyAdjusted',
+       'monthlyUnadjusted', 'monthlyAdjusted',
+       'quarterlyUnadjusted', 'quarterlyAdjusted',
+       'annualUnadjusted', 'annualAdjusted'
+     ];
+     resultIds.forEach(id => {
+       document.getElementById(id).textContent = '';
+     });
+   });
+
+   // Save in Image functionality using html2canvas with white background
+   document.getElementById('saveImageBtn').addEventListener('click', () => {
+     const resultSection = document.getElementById('resultSection');
+     html2canvas(resultSection, {backgroundColor: '#ffffff', scale: 2}).then(canvas => {
+       canvas.toBlob(blob => {
+         const url = URL.createObjectURL(blob);
+         const a = document.createElement('a');
+         a.href = url;
+         a.download = 'annual_income_calculator_result.png';
+         document.body.appendChild(a);
+         a.click();
+         a.remove();
+         URL.revokeObjectURL(url);
+       });
+     }).catch(() => {
+       alert('Failed to save image.');
+     });
+   });
+
+   // Save in PDF functionality using jsPDF and html2canvas
+   document.getElementById('savePdfBtn').addEventListener('click', () => {
+     const { jsPDF } = window.jspdf;
+     const resultSection = document.getElementById('resultSection');
+     html2canvas(resultSection, {backgroundColor: '#fff', scale: 2}).then(canvas => {
+       const imgData = canvas.toDataURL('image/png');
+       const pdf = new jsPDF({
+         orientation: 'portrait',
+         unit: 'pt',
+         format: 'a4'
+       });
+       const pdfWidth = pdf.internal.pageSize.getWidth();
+       const pdfHeight = pdf.internal.pageSize.getHeight();
+
+       // Calculate image dimensions to fit PDF width with aspect ratio
+       const imgProps = pdf.getImageProperties(imgData);
+       const imgWidth = pdfWidth - 40; // 20pt margin each side
+       const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+
+       let position = 20; // margin top
+
+       if (imgHeight < pdfHeight - 40) {
+         // Image fits on one page
+         pdf.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
+       } else {
+         // Image too tall, scale to fit height and add pages if needed
+         let heightLeft = imgHeight;
+         let y = position;
+         let pageHeight = pdfHeight - 40;
+         let scale = imgWidth / imgProps.width;
+         while (heightLeft > 0) {
+           pdf.addImage(imgData, 'PNG', 20, y, imgWidth, imgProps.height * scale, undefined, 'FAST', 0, -heightLeft);
+           heightLeft -= pageHeight;
+           if (heightLeft > 0) {
+             pdf.addPage();
+             y = 20;
+           }
+         }
+       }
+
+       pdf.save('annual_income_calculator_result.pdf');
+     }).catch(() => {
+       alert('Failed to save PDF.');
+     });
+   });
+  </script>
+ </body>
+</html>

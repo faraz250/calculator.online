@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    /* Custom font for the header text */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen flex flex-col justify-between">
+  <header class="flex items-center gap-3 px-36 py-6">
+    <h1 class="font-semibold text-lg" style="font-family: Arial, sans-serif;">
+      Calculator.online
+    </h1>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 text-sm w-72 focus:outline-none focus:ring-2 focus:ring-purple-700"
+      aria-label="Search calculator"
+    />
+    <button
+      id="searchButton"
+      class="bg-purple-700 text-white text-sm font-semibold px-6 py-2 rounded-md hover:bg-purple-800 transition"
+      aria-label="Search button"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="px-36">
+    <h2 class="text-xl font-semibold mb-4">Top Statistics Calculator</h2>
+
+    <section
+      class="border-2 border-purple-700 rounded-xl w-72 p-4"
+      aria-label="Statistics Calculator Section"
+    >
+      <h3 class="text-sm font-semibold mb-4">1.Statistics Calculator</h3>
+      <nav id="calculatorList" class="flex flex-col gap-2" aria-label="Calculator links">
+        <a
+          href="standard-deviation-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Standard Deviation Calculator</a
+        >
+        <a
+          href="number-sequence-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Number Sequence Calculator</a
+        >
+        <a
+          href="sample-size-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Sample Size Calculator</a
+        >
+        <a
+          href="probability-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Probability Calculator</a
+        >
+        <a
+          href="statistics-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Statistics Calculator</a
+        >
+        <a
+          href="mean-median-mode-range.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Mean, Median, Mode, Range</a
+        >
+        <a
+          href="permutation-combination.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Permutation and Combination</a
+        >
+        <a
+          href="z-score-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Z-score Calculator</a
+        >
+        <a
+          href="confidence-interval-calculator.html"
+          class="border border-gray-300 rounded-full px-4 py-1 text-xs font-semibold text-blue-600 hover:underline w-max"
+          >Confidence Interval Calculator</a
+        >
+      </nav>
+      <p id="noResultsMessage" class="hidden text-red-600 text-xs mt-2 font-semibold">No calculator found.</p>
+    </section>
+  </main>
+
+  <footer
+    class="border-t border-gray-300 mt-20 py-4 px-36 text-xs text-gray-600 flex flex-wrap gap-2 justify-center"
+  >
+    <a href="about-us.html" class="hover:underline">about us</a>
+    <span>|</span>
+    <a href="sitemap.html" class="hover:underline">sitemap</a>
+    <span>|</span>
+    <a href="terms-of-use.html" class="hover:underline">terms of use</a>
+    <span>|</span>
+    <a href="privacy-policy.html" class="hover:underline">privacy policy</a>
+    <span>|</span>
+    <span>© 2008 - 2025</span>
+    <a href="calculator-net.html" class="hover:underline">calculator.net</a>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const calculatorList = document.getElementById('calculatorList');
+    const calculators = Array.from(calculatorList.getElementsByTagName('a'));
+    const noResultsMessage = document.getElementById('noResultsMessage');
+
+    function filterCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+      let anyVisible = false;
+      calculators.forEach((calc) => {
+        const text = calc.textContent.toLowerCase();
+        if (text.includes(query)) {
+          calc.style.display = '';
+          anyVisible = true;
+        } else {
+          calc.style.display = 'none';
+        }
+      });
+      noResultsMessage.classList.toggle('hidden', anyVisible);
+    }
+
+    searchButton.addEventListener('click', filterCalculators);
+
+    // Also allow pressing Enter key in input to trigger search
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        filterCalculators();
+      }
+    });
+  </script>
+</body>
+</html>

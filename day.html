@@ -1,0 +1,158 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Calculator.online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-[#1a1a1a]">
+  <div class="max-w-7xl mx-auto px-4 py-6">
+   <header class="flex flex-wrap items-center gap-3 mb-6">
+    <h1 class="font-bold text-[22px] leading-[28px] text-[#1a1a1a]">
+     Calculator.online
+    </h1>
+    <input aria-label="Search calculator" class="border border-gray-300 rounded-md px-3 py-2 text-[15px] leading-[20px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent flex-grow max-w-[300px]" id="searchInput" placeholder="Search calculator by cc" type="text"/>
+    <button class="bg-purple-700 text-white rounded-md px-6 py-2 text-[15px] leading-[20px] font-normal" id="searchButton" type="button">
+     Search
+    </button>
+   </header>
+   <main class="flex flex-col lg:flex-row gap-6">
+    <section class="flex-1 max-w-full lg:max-w-[600px]">
+     <h2 class="font-extrabold text-[#0a1e4a] text-[18px] leading-[24px] mb-1">
+      Fitness and Health Calculators
+     </h2>
+     <p class="text-[14px] leading-[20px] mb-4">
+      The following is a complete list of our fitness and health related
+          calculators.
+     </p>
+     <ul class="text-[14px] leading-[20px] space-y-1 text-blue-700 underline" id="calculatorList">
+      <li>
+       <a href="https://www.calculator.net/age-calculator.html" target="_blank" rel="noopener noreferrer">
+        Age Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/date-calculator.html" target="_blank" rel="noopener noreferrer">
+        Date Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/time-calculator.html" target="_blank" rel="noopener noreferrer">
+        Time Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/hours-calculator.html" target="_blank" rel="noopener noreferrer">
+        Hours Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/time-card-calculator.html" target="_blank" rel="noopener noreferrer">
+        Time Card Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/time-zone-calculator.html" target="_blank" rel="noopener noreferrer">
+        Time Zone Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/time-duration-calculator.html" target="_blank" rel="noopener noreferrer">
+        Time Duration Calculator
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/day-counter.html" target="_blank" rel="noopener noreferrer">
+        Day Counter
+       </a>
+      </li>
+      <li>
+       <a href="https://www.calculator.net/day-of-week-calculator.html" target="_blank" rel="noopener noreferrer">
+        Day of the Week Calculator
+       </a>
+      </li>
+     </ul>
+    </section>
+    <aside class="flex flex-col items-center max-w-full lg:max-w-[300px]">
+     <img alt="Colorful image showing silhouettes of animals and humans with text 'Which animal aura do you have?' and a button labeled 'TAKE TEST'" class="w-full max-w-[300px] mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/4fbdefe7-6755-4193-2ca2-22ab44c61e79.jpg" width="300"/>
+     <p class="font-semibold text-[14px] leading-[20px] text-gray-600 mb-2">
+      Ads
+     </p>
+     <div class="w-full max-w-[300px] h-[150px] border border-gray-300">
+     </div>
+    </aside>
+   </main>
+  </div>
+  <footer class="border-t border-gray-300 mt-10 py-4">
+   <div class="max-w-7xl mx-auto px-4 text-center text-gray-600 text-[14px] leading-[20px] flex flex-wrap justify-center gap-2">
+    <a class="hover:underline" href="#">
+     about us
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     sitemap
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     terms of use
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     privacy policy
+    </a>
+    <span>
+     |
+    </span>
+    <span>
+     © 2008 - 2025
+    </span>
+    <span>
+     |
+    </span>
+    <span>
+     calculator.net
+    </span>
+   </div>
+  </footer>
+  <script>
+   const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const calculatorList = document.getElementById("calculatorList");
+const calculators = Array.from(calculatorList.getElementsByTagName("li"));
+
+function filterCalculators() {
+  const query = searchInput.value.toLowerCase().trim();
+  calculators.forEach((li) => {
+    const text = li.textContent.toLowerCase();
+    if (text.includes(query)) {
+      li.style.display = "";
+    } else {
+      li.style.display = "none";
+    }
+  });
+}
+
+searchButton.addEventListener("click", filterCalculators);
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    filterCalculators();
+  }
+});
+  </script>
+ </body>
+</html>

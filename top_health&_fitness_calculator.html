@@ -1,0 +1,227 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Calculator.online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-black">
+  <header class="flex flex-wrap items-center justify-start gap-3 px-6 py-4 max-w-[1200px] mx-auto">
+   <div class="font-semibold text-lg select-none">
+    Calculator.online
+   </div>
+   <input aria-label="Search calculator by cc" class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent w-[220px]" id="searchInput" placeholder="Search calculator by cc" type="text"/>
+   <button class="bg-purple-700 text-white px-5 py-2 rounded-md hover:bg-purple-800 transition-colors" id="searchBtn" type="button">
+    Search
+   </button>
+  </header>
+  <main class="max-w-[1200px] mx-auto px-6">
+   <h2 class="text-xl font-semibold mb-4">
+    Top Fitness and Health Calculators
+   </h2>
+   <div class="flex flex-wrap gap-6">
+    <div class="flex gap-6 flex-wrap max-w-[900px]">
+     <!-- Column 1: Fitness -->
+     <section class="border-2 border-purple-700 rounded-2xl p-4 w-[280px] flex flex-col items-center" data-category="fitness">
+      <h3 class="font-semibold mb-3">
+       1.Fitness
+      </h3>
+      <nav class="flex flex-col gap-2 w-full max-w-[220px]">
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/bmi-calculator.html" target="_blank" rel="noopener" data-name="BMI Calculator">
+        BMI Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/calorie-calculator.html" target="_blank" rel="noopener" data-name="Calorie Calculator">
+        Calorie Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/body-fat-calculator.html" target="_blank" rel="noopener" data-name="Body Fat Calculator">
+        Body Fat Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/bmr-calculator.html" target="_blank" rel="noopener" data-name="BMR Calculator">
+        BMR Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/ideal-weight-calculator.html" target="_blank" rel="noopener" data-name="Ideal Weight Calculator">
+        Ideal Weight Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/pace-calculator.html" target="_blank" rel="noopener" data-name="Pace Calculator">
+        Pace Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/army-body-fat-calculator.html" target="_blank" rel="noopener" data-name="Army Body Fat Calculator">
+        Army Body Fat Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/lean-body-mass-calculator.html" target="_blank" rel="noopener" data-name="Lean Body Mass Calculator">
+        Lean Body Mass Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/healthy-weight-calculator.html" target="_blank" rel="noopener" data-name="Healthy Weight Calculator">
+        Healthy Weight Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/calories-burned-calculator.html" target="_blank" rel="noopener" data-name="Calories Burned Calculator">
+        Calories Burned Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/one-rep-max-calculator.html" target="_blank" rel="noopener" data-name="One Rep Max Calculator">
+        One Rep Max Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/target-heart-rate-calculator.html" target="_blank" rel="noopener" data-name="Target Heart Rate Calculator">
+        Target Heart Rate Calculator
+       </a>
+      </nav>
+     </section>
+     <!-- Column 2: Pregnancy -->
+     <section class="border-2 border-purple-700 rounded-2xl p-4 w-[280px] flex flex-col items-center" data-category="pregnancy">
+      <h3 class="font-semibold mb-3">
+       2. Pregnancy
+      </h3>
+      <nav class="flex flex-col gap-2 w-full max-w-[220px]">
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/pregnancy-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Calculator">
+        Pregnancy Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/pregnancy-weight-gain-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Weight Gain">
+        Pregnancy Weight Gain
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/pregnancy-conception-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Conception">
+        Pregnancy Conception
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/due-date-calculator.html" target="_blank" rel="noopener" data-name="Due Date Calculator">
+        Due Date Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/ovulation-calculator.html" target="_blank" rel="noopener" data-name="Ovulation Calculator">
+        Ovulation Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/conception-calculator.html" target="_blank" rel="noopener" data-name="Conception Calculator">
+        Conception Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/period-calculator.html" target="_blank" rel="noopener" data-name="Period Calculator">
+        Period Calculator
+       </a>
+      </nav>
+     </section>
+     <!-- Column 3: Other -->
+     <section class="border-2 border-purple-700 rounded-2xl p-4 w-[280px] flex flex-col items-center" data-category="other">
+      <h3 class="font-semibold mb-3">
+       3. Other
+      </h3>
+      <nav class="flex flex-col gap-2 w-full max-w-[220px]">
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/macro-calculator.html" target="_blank" rel="noopener" data-name="Macro Calculator">
+        Macro Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/carbohydrate-calculator.html" target="_blank" rel="noopener" data-name="Carbohydrate Calculator">
+        Carbohydrate Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/protein-calculator.html" target="_blank" rel="noopener" data-name="Protein Calculator">
+        Protein Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/fat-intake-calculator.html" target="_blank" rel="noopener" data-name="Fat Intake Calculator">
+        Fat Intake Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/tdee-calculator.html" target="_blank" rel="noopener" data-name="TDEE Calculator">
+        TDEE Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/gfr-calculator.html" target="_blank" rel="noopener" data-name="GFR Calculator">
+        GFR Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/body-type-calculator.html" target="_blank" rel="noopener" data-name="Body Type Calculator">
+        Body Type Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/body-surface-area-calculator.html" target="_blank" rel="noopener" data-name="Body Surface Area Calculator">
+        Body Surface Area Calculator
+       </a>
+       <a class="block border border-gray-400 rounded-full px-4 py-1 text-blue-700 text-center font-semibold hover:underline" href="https://www.calculator.net/bac-calculator.html" target="_blank" rel="noopener" data-name="BAC Calculator">
+        BAC Calculator
+       </a>
+      </nav>
+     </section>
+    </div>
+   
+   </div>
+  </main>
+  <footer class="max-w-[1200px] mx-auto px-6 mt-10 border-t border-gray-300 pt-4">
+   <nav class="flex flex-wrap justify-center gap-4 text-sm text-gray-600 font-light select-none">
+    <a class="hover:underline" href="#">
+     about us
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     sitemap
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     terms of use
+    </a>
+    <span>
+     |
+    </span>
+    <a class="hover:underline" href="#">
+     privacy policy
+    </a>
+    <span>
+     |
+    </span>
+    <span>
+     © 2008 - 2025
+    </span>
+    <a class="hover:underline" href="#">
+     calculator.net
+    </a>
+   </nav>
+  </footer>
+  <script>
+   (() => {
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const container = document.querySelector('main > div.flex.flex-wrap.gap-6');
+    const sections = container.querySelectorAll('section');
+
+    function searchCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        // Show all sections and all links if query is empty
+        sections.forEach(section => {
+          section.style.display = '';
+          const links = section.querySelectorAll('a');
+          links.forEach(link => {
+            link.style.display = '';
+          });
+        });
+        return;
+      }
+
+      sections.forEach(section => {
+        const links = section.querySelectorAll('a');
+        let anyVisible = false;
+        links.forEach(link => {
+          const name = link.getAttribute('data-name').toLowerCase();
+          if (name.includes(query)) {
+            link.style.display = '';
+            anyVisible = true;
+          } else {
+            link.style.display = 'none';
+          }
+        });
+        // Show section only if it has visible links
+        section.style.display = anyVisible ? '' : 'none';
+      });
+    }
+
+    searchBtn.addEventListener('click', searchCalculators);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        searchCalculators();
+      }
+    });
+   })();
+  </script>
+ </body>
+</html>

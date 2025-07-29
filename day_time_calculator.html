@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex flex-col sm:flex-row sm:items-center gap-3 px-6 py-4 max-w-7xl mx-auto">
+    <h1 class="font-semibold text-lg leading-6">Calculator.online</h1>
+    <div class="flex gap-3 w-full sm:w-auto">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search calculator by cc"
+        class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 text-sm w-full sm:w-60 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent"
+        aria-label="Search calculator"
+      />
+      <button
+        id="searchButton"
+        class="bg-purple-700 text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-purple-800 transition"
+        aria-label="Search"
+      >
+        Search
+      </button>
+    </div>
+  </header>
+
+  <main class="px-6 max-w-7xl mx-auto">
+    <h2 class="text-xl font-normal mb-4">Top Day &amp; Time Calculator</h2>
+
+    <section
+      id="calculatorList"
+      class="border-2 border-purple-700 rounded-xl w-72 p-4 max-w-full"
+      aria-label="Day and Time Calculators"
+    >
+      <h3 class="font-semibold text-sm mb-3">1.Day &amp; Time</h3>
+      <nav class="flex flex-col gap-2" id="calculatorNav">
+        <a
+          href="https://www.calculator.net/age-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Age Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/date-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Date Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/time-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Time Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/hours-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Hours Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/time-card-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Time Card Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/time-zone-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Time Zone Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/time-duration-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Time Duration Calculator</a
+        >
+        <a
+          href="https://www.calculator.net/day-counter.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          >Day Counter</a
+        >
+        <a
+          href="https://www.calculator.net/day-of-week-calculator.html"
+          class="border border-gray-300 rounded-full text-blue-600 text-xs font-semibold text-center py-1.5 block hover:underline"
+          ><strong>Day of the Week Calculator</strong></a
+        >
+      </nav>
+    </section>
+  </main>
+
+  <footer
+    class="max-w-7xl mx-auto mt-20 border-t border-gray-300 text-gray-600 text-xs px-6 py-3 flex flex-wrap justify-center gap-2"
+  >
+    <a href="#" class="hover:underline">about us</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">sitemap</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">terms of use</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">privacy policy</a>
+    <span>|</span>
+    <span>© 2008 - 2025</span>
+    <a href="#" class="hover:underline">calculator.net</a>
+  </footer>
+
+  <script>
+    (() => {
+      const searchInput = document.getElementById("searchInput");
+      const searchButton = document.getElementById("searchButton");
+      const calculatorNav = document.getElementById("calculatorNav");
+      const calculators = Array.from(calculatorNav.querySelectorAll("a"));
+
+      function filterCalculators() {
+        const query = searchInput.value.trim().toLowerCase();
+        calculators.forEach((link) => {
+          const text = link.textContent.toLowerCase();
+          if (text.includes(query)) {
+            link.style.display = "block";
+          } else {
+            link.style.display = "none";
+          }
+        });
+      }
+
+      searchButton.addEventListener("click", filterCalculators);
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          filterCalculators();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

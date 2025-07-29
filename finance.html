@@ -1,0 +1,457 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Calculator.online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+  .logo-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+  </style>
+ </head>
+ <body class="bg-white text-black">
+  <div class="max-w-7xl mx-auto px-4 pt-8">
+   <header class="flex flex-wrap items-center gap-4">
+    <h1 class="logo-font text-2xl select-none">
+     Calculator.online
+    </h1>
+    <form id="mainSearchForm" class="flex" role="search" aria-label="Search calculator by cc" onsubmit="return false;">
+     <input aria-label="Search calculator by cc" class="border border-gray-300 rounded-l-md px-3 py-2 text-gray-400 text-base w-[280px] focus:outline-none focus:ring-2 focus:ring-purple-700" id="mainSearchInput" name="search" placeholder="Search calculator by cc" type="text"/>
+     <button class="bg-purple-700 text-white rounded-r-md px-6 py-2 text-base font-normal hover:bg-purple-800 transition" id="mainSearchBtn" type="submit">
+      Search
+     </button>
+    </form>
+   </header>
+   <main class="mt-8 flex flex-wrap gap-8">
+    <section class="flex-1 min-w-[280px] max-w-[600px]" id="calculatorsSection">
+     <h2 class="text-blue-900 font-semibold text-lg mb-1">
+      Financial Calculators
+     </h2>
+     <p class="text-xs mb-4 font-normal">
+      The following is a complete list of our financial calculators.
+     </p>
+     <div class="flex flex-wrap gap-x-12 gap-y-4 text-xs font-normal text-blue-900" id="calculatorsList">
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Mortgage and Real Estate
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="mortgage-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Mortgage Calculator">
+        Mortgage Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="amortization-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Amortization Calculator">
+        Amortization Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="mortgage-payoff-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Mortgage Payoff Calculator">
+        Mortgage Payoff Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="house-affordability-calculator.html" target="_blank" rel="noopener noreferrer" data-name="House Affordability Calculator">
+        House Affordability Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="rent-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Rent Calculator">
+        Rent Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="debt-to-income-ratio-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Debt-to-Income Ratio Calculator">
+        Debt-to-Income Ratio Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="real-estate-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Real Estate Calculator">
+        Real Estate Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="refinance-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Refinance Calculator">
+        Refinance Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="rental-property-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Rental Property Calculator">
+        Rental Property Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="apr-calculator.html" target="_blank" rel="noopener noreferrer" data-name="APR Calculator">
+        APR Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="fha-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="FHA Loan Calculator">
+        FHA Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="va-mortgage-calculator.html" target="_blank" rel="noopener noreferrer" data-name="VA Mortgage Calculator">
+        VA Mortgage Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="down-payment-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Down Payment Calculator">
+        Down Payment Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="rent-vs-buy-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Rent vs. Buy Calculator">
+        Rent vs. Buy Calculator
+       </a>
+      </div>
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Retirement
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="retirement-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Retirement Calculator">
+        Retirement Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="401k-calculator.html" target="_blank" rel="noopener noreferrer" data-name="401K Calculator">
+        401K Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="pension-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Pension Calculator">
+        Pension Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="social-security-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Social Security Calculator">
+        Social Security Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="annuity-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Annuity Calculator">
+        Annuity Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="annuity-payoff-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Annuity Payoff Calculator">
+        Annuity Payoff Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="roth-ira-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Roth IRA Calculator">
+        Roth IRA Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="ira-calculator.html" target="_blank" rel="noopener noreferrer" data-name="IRA Calculator">
+        IRA Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="rmd-calculator.html" target="_blank" rel="noopener noreferrer" data-name="RMD Calculator">
+        RMD Calculator
+       </a>
+      </div>
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Tax and Salary
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="income-tax-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Income Tax Calculator">
+        Income Tax Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="salary-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Salary Calculator">
+        Salary Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="marriage-tax-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Marriage Tax Calculator">
+        Marriage Tax Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="estate-tax-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Estate Tax Calculator">
+        Estate Tax Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="take-home-paycheck-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Take-Home-Paycheck Calculator">
+        Take-Home-Paycheck Calculator
+       </a>
+      </div>
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Auto
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="auto-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Auto Loan Calculator">
+        Auto Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="cash-back-low-interest-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Cash Back or Low Interest Calculator">
+        Cash Back or Low Interest Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="auto-lease-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Auto Lease Calculator">
+        Auto Lease Calculator
+       </a>
+      </div>
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Investment
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="interest-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Interest Calculator">
+        Interest Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="investment-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Investment Calculator">
+        Investment Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="finance-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Finance Calculator">
+        Finance Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="compound-interest-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Compound Interest Calculator">
+        Compound Interest Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="interest-rate-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Interest Rate Calculator">
+        Interest Rate Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="savings-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Savings Calculator">
+        Savings Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="simple-interest-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Simple Interest Calculator">
+        Simple Interest Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="cd-calculator.html" target="_blank" rel="noopener noreferrer" data-name="CD Calculator">
+        CD Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="bond-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Bond Calculator">
+        Bond Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="average-return-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Average Return Calculator">
+        Average Return Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="irr-calculator.html" target="_blank" rel="noopener noreferrer" data-name="IRR Calculator">
+        IRR Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="roi-calculator.html" target="_blank" rel="noopener noreferrer" data-name="ROI Calculator">
+        ROI Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="payback-period-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Payback Period Calculator">
+        Payback Period Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="present-value-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Present Value Calculator">
+        Present Value Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="future-value-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Future Value Calculator">
+        Future Value Calculator
+       </a>
+      </div>
+      <div class="w-1/2 min-w-[180px] calculator-category">
+       <p class="font-semibold mb-1">
+        Other
+       </p>
+       <a class="block underline mb-[2px] calculator-link" href="loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Loan Calculator">
+        Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="payment-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Payment Calculator">
+        Payment Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="currency-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Currency Calculator">
+        Currency Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="inflation-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Inflation Calculator">
+        Inflation Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="sales-tax-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Sales Tax Calculator">
+        Sales Tax Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="credit-card-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Credit Card Calculator">
+        Credit Card Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="credit-card-payoff-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Credit Card Payoff Calculator">
+        Credit Card Payoff Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="debt-payoff-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Debt Payoff Calculator">
+        Debt Payoff Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="debt-consolidation-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Debt Consolidation Calculator">
+        Debt Consolidation Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="repayment-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Repayment Calculator">
+        Repayment Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="student-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Student Loan Calculator">
+        Student Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="college-cost-calculator.html" target="_blank" rel="noopener noreferrer" data-name="College Cost Calculator">
+        College Cost Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="vat-calculator.html" target="_blank" rel="noopener noreferrer" data-name="VAT Calculator">
+        VAT Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="depreciation-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Depreciation Calculator">
+        Depreciation Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="margin-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Margin Calculator">
+        Margin Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="discount-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Discount Calculator">
+        Discount Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="business-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Business Loan Calculator">
+        Business Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="personal-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Personal Loan Calculator">
+        Personal Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="boat-loan-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Boat Loan Calculator">
+        Boat Loan Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="lease-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Lease Calculator">
+        Lease Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="budget-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Budget Calculator">
+        Budget Calculator
+       </a>
+       <a class="block underline mb-[2px] calculator-link" href="commission-calculator.html" target="_blank" rel="noopener noreferrer" data-name="Commission Calculator">
+        Commission Calculator
+       </a>
+      </div>
+     </div>
+    </section>
+    <aside class="w-[280px] flex-shrink-0">
+     <img alt="Advertisement banner for The Adventuredome Indoor Theme Park showing a roller coaster and text Wristbands Now 50% Off" class="mb-4" height="280" src="https://storage.googleapis.com/a1aa/image/4bd3d9d1-1fe0-47f9-4357-4fc8cb348deb.jpg" width="280"/>
+     <form action="#" aria-label="Search financial calculators" class="flex mb-2" id="sideSearchForm" method="get" role="search" onsubmit="return false;">
+      <input aria-label="Search financial calculators" class="border border-gray-400 rounded-l-sm px-2 py-1 text-xs w-full focus:outline-none focus:ring-1 focus:ring-blue-700" id="sideSearchInput" name="search" type="text"/>
+      <button class="bg-blue-700 text-white text-xs px-3 rounded-r-sm hover:bg-blue-800 transition" id="sideSearchBtn" type="submit">
+       Search
+      </button>
+     </form>
+     <div class="text-xs text-blue-900 border border-blue-700 rounded-sm">
+      <div class="bg-blue-700 text-white px-2 py-1 rounded-t-sm font-semibold">
+       Financial Calculators
+      </div>
+      <div class="grid grid-cols-2 gap-x-2 gap-y-0 px-2 py-1">
+       <div>
+        <a class="underline block mb-[2px]" href="mortgage.html" target="_blank" rel="noopener noreferrer" data-name="Mortgage">
+         Mortgage
+        </a>
+        <a class="underline block mb-[2px]" href="auto-loan.html" target="_blank" rel="noopener noreferrer" data-name="Auto Loan">
+         Auto Loan
+        </a>
+        <a class="underline block mb-[2px]" href="payment.html" target="_blank" rel="noopener noreferrer" data-name="Payment">
+         Payment
+        </a>
+        <a class="underline block mb-[2px]" href="amortization.html" target="_blank" rel="noopener noreferrer" data-name="Amortization">
+         Amortization
+        </a>
+        <a class="underline block mb-[2px]" href="currency.html" target="_blank" rel="noopener noreferrer" data-name="Currency">
+         Currency
+        </a>
+        <a class="underline block mb-[2px]" href="finance.html" target="_blank" rel="noopener noreferrer" data-name="Finance">
+         Finance
+        </a>
+        <a class="underline block mb-[2px]" href="income-tax.html" target="_blank" rel="noopener noreferrer" data-name="Income Tax">
+         Income Tax
+        </a>
+        <a class="underline block mb-[2px]" href="salary.html" target="_blank" rel="noopener noreferrer" data-name="Salary">
+         Salary
+        </a>
+        <a class="underline block mb-[2px]" href="interest-rate.html" target="_blank" rel="noopener noreferrer" data-name="Interest Rate">
+         Interest Rate
+        </a>
+        <a class="underline block mb-[2px]" href="more-financial.html" target="_blank" rel="noopener noreferrer">
+         More Financial Calculators
+        </a>
+       </div>
+       <div>
+        <a class="underline block mb-[2px]" href="loan.html" target="_blank" rel="noopener noreferrer" data-name="Loan">
+         Loan
+        </a>
+        <a class="underline block mb-[2px]" href="interest.html" target="_blank" rel="noopener noreferrer" data-name="Interest">
+         Interest
+        </a>
+        <a class="underline block mb-[2px]" href="retirement.html" target="_blank" rel="noopener noreferrer" data-name="Retirement">
+         Retirement
+        </a>
+        <a class="underline block mb-[2px]" href="investment.html" target="_blank" rel="noopener noreferrer" data-name="Investment">
+         Investment
+        </a>
+        <a class="underline block mb-[2px]" href="inflation.html" target="_blank" rel="noopener noreferrer" data-name="Inflation">
+         Inflation
+        </a>
+        <a class="underline block mb-[2px]" href="mortgage-payoff.html" target="_blank" rel="noopener noreferrer" data-name="Mortgage Payoff">
+         Mortgage Payoff
+        </a>
+        <a class="underline block mb-[2px]" href="compound-interest.html" target="_blank" rel="noopener noreferrer" data-name="Compound Interest">
+         Compound Interest
+        </a>
+        <a class="underline block mb-[2px]" href="401k.html" target="_blank" rel="noopener noreferrer" data-name="401K">
+         401K
+        </a>
+        <a class="underline block mb-[2px]" href="sales-tax.html" target="_blank" rel="noopener noreferrer" data-name="Sales Tax">
+         Sales Tax
+        </a>
+       </div>
+      </div>
+      <div class="border-t border-blue-700 px-2 py-1 flex justify-between text-blue-700 font-semibold">
+       <a class="hover:underline" href="financial.html" target="_blank" rel="noopener noreferrer">
+        Financial
+       </a>
+       <a class="hover:underline" href="fitness-health.html" target="_blank" rel="noopener noreferrer">
+        Fitness and Health
+       </a>
+       <a class="hover:underline" href="math.html" target="_blank" rel="noopener noreferrer">
+        Math
+       </a>
+       <a class="hover:underline" href="other.html" target="_blank" rel="noopener noreferrer">
+        Other
+       </a>
+      </div>
+     </div>
+    </aside>
+   </main>
+  </div>
+  <footer class="border-t border-gray-300 mt-8 py-2 text-center text-xs text-gray-600 select-none">
+   <a class="hover:underline" href="about-us.html" target="_blank" rel="noopener noreferrer">
+    about us
+   </a>
+   |
+   <a class="hover:underline" href="sitemap.html" target="_blank" rel="noopener noreferrer">
+    sitemap
+   </a>
+   |
+   <a class="hover:underline" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">
+    terms of use
+   </a>
+   |
+   <a class="hover:underline" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">
+    privacy policy
+   </a>
+   <span>
+    © 2008 - 2025 calculator.net
+   </span>
+  </footer>
+  <script>
+   // Search function: filters the calculator categories and links to show only matching calculators
+   function searchCalculators(query) {
+     const calculatorsSection = document.getElementById('calculatorsSection');
+     const calculatorsList = document.getElementById('calculatorsList');
+     const categories = calculatorsList.querySelectorAll('.calculator-category');
+     const q = query.trim().toLowerCase();
+
+     if (!q) {
+       // If empty query, show all categories and links
+       categories.forEach(cat => {
+         cat.style.display = '';
+         cat.querySelectorAll('a.calculator-link').forEach(link => {
+           link.style.display = '';
+         });
+       });
+       return;
+     }
+
+     let anyMatch = false;
+
+     categories.forEach(cat => {
+       let categoryHasMatch = false;
+       cat.querySelectorAll('a.calculator-link').forEach(link => {
+         const name = link.dataset.name.toLowerCase();
+         if (name.includes(q)) {
+           link.style.display = '';
+           categoryHasMatch = true;
+         } else {
+           link.style.display = 'none';
+         }
+       });
+       // Show category only if it has matching links
+       cat.style.display = categoryHasMatch ? '' : 'none';
+       if (categoryHasMatch) anyMatch = true;
+     });
+
+     if (!anyMatch) {
+       // If no matches, show a message
+       if (!document.getElementById('noResultsMessage')) {
+         const msg = document.createElement('p');
+         msg.id = 'noResultsMessage';
+         msg.className = 'text-red-600 text-sm mt-2';
+         msg.textContent = 'No calculators found matching "' + query + '".';
+         calculatorsSection.appendChild(msg);
+       }
+     } else {
+       // Remove no results message if present
+       const msg = document.getElementById('noResultsMessage');
+       if (msg) msg.remove();
+     }
+   }
+
+   // Main search form submit
+   document.getElementById('mainSearchForm').addEventListener('submit', e => {
+     e.preventDefault();
+     const query = document.getElementById('mainSearchInput').value;
+     searchCalculators(query);
+   });
+
+   // Side search form submit
+   document.getElementById('sideSearchForm').addEventListener('submit', e => {
+     e.preventDefault();
+     const query = document.getElementById('sideSearchInput').value;
+     searchCalculators(query);
+   });
+  </script>
+ </body>
+</html>

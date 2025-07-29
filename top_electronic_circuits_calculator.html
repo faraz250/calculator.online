@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex items-center gap-3 px-6 py-4 max-w-7xl mx-auto">
+    <div class="font-semibold text-lg select-none">Calculator.online</div>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent"
+      aria-label="Search calculator by cc"
+    />
+    <button
+      id="searchBtn"
+      class="bg-purple-700 text-white px-5 py-2 rounded-md hover:bg-purple-800 transition"
+      aria-label="Search"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6">
+    <h2 class="text-xl font-semibold mb-4">Top Electronics/Circuits Calculator</h2>
+
+    <section
+      id="calculatorSection"
+      class="border-2 border-purple-700 rounded-xl w-72 p-4 select-none"
+      aria-label="Electronics Circuits Calculator Section"
+    >
+      <h3 class="font-semibold mb-3">1.Electronics/Circuits</h3>
+      <ul id="calculatorList" class="space-y-2">
+        <li>
+          <a
+            href="https://www.calculator.net/voltage-drop-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 font-semibold text-sm text-center hover:underline"
+            >Voltage Drop Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/resistor-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 font-semibold text-sm text-center hover:underline"
+            >Resistor Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/ohms-law-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 font-semibold text-sm text-center hover:underline"
+            >Ohms Law Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/electricity-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 font-semibold text-sm text-center hover:underline"
+            >Electricity Calculator</a
+          >
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer
+    class="max-w-7xl mx-auto px-6 mt-20 border-t border-gray-300 text-gray-600 text-xs py-4 select-none"
+  >
+    <nav class="flex flex-wrap gap-x-2 gap-y-1 justify-center">
+      <a href="https://www.calculator.net/about-us.html" target="_blank" rel="noopener noreferrer" class="hover:underline">about us</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/sitemap.html" target="_blank" rel="noopener noreferrer" class="hover:underline">sitemap</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/terms-of-use.html" target="_blank" rel="noopener noreferrer" class="hover:underline">terms of use</a>
+      <span>|</span>
+      <a href="https://www.calculator.net/privacy-policy.html" target="_blank" rel="noopener noreferrer" class="hover:underline">privacy policy</a>
+      <span>|</span>
+      <span>© 2008 - 2025</span>
+      <a href="https://www.calculator.net" target="_blank" rel="noopener noreferrer" class="hover:underline">calculator.net</a>
+    </nav>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const calculatorList = document.getElementById("calculatorList");
+    const calculators = [
+      {
+        name: "Voltage Drop Calculator",
+        href: "https://www.calculator.net/voltage-drop-calculator.html",
+      },
+      {
+        name: "Resistor Calculator",
+        href: "https://www.calculator.net/resistor-calculator.html",
+      },
+      {
+        name: "Ohms Law Calculator",
+        href: "https://www.calculator.net/ohms-law-calculator.html",
+      },
+      {
+        name: "Electricity Calculator",
+        href: "https://www.calculator.net/electricity-calculator.html",
+      },
+    ];
+
+    function renderList(filtered) {
+      calculatorList.innerHTML = "";
+      if (filtered.length === 0) {
+        calculatorList.innerHTML =
+          '<li class="text-center text-gray-500 font-semibold">No results found</li>';
+        return;
+      }
+      filtered.forEach((calc) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = calc.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className =
+          "block border border-gray-300 rounded-full px-4 py-1 text-blue-700 font-semibold text-sm text-center hover:underline";
+        a.textContent = calc.name;
+        li.appendChild(a);
+        calculatorList.appendChild(li);
+      });
+    }
+
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        renderList(calculators);
+        return;
+      }
+      const filtered = calculators.filter((calc) =>
+        calc.name.toLowerCase().includes(query)
+      );
+      renderList(filtered);
+    });
+
+    // Optional: allow pressing Enter key to trigger search
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

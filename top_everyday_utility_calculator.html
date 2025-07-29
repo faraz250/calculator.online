@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex items-center gap-3 px-6 py-4">
+    <h1 class="font-semibold text-lg" style="font-family: Arial, sans-serif;">
+      Calculator.online
+    </h1>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-1 text-gray-400 text-sm w-60 focus:outline-none focus:ring-2 focus:ring-purple-700"
+      aria-label="Search calculator"
+    />
+    <button
+      id="searchBtn"
+      class="bg-purple-700 text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-purple-800"
+      aria-label="Search"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="px-6">
+    <h2 class="text-xl font-semibold mb-4">Top Everyday Utility Calculator</h2>
+
+    <section
+      id="calculatorList"
+      class="border-2 border-purple-700 rounded-xl w-72 p-4 max-w-full"
+      aria-label="Everyday Utility Calculators"
+    >
+      <h3 class="font-semibold mb-4">1.Everyday Utility</h3>
+      <ul class="flex flex-col gap-2" id="calcItems">
+        <li>
+          <a
+            href="https://www.calculator.net/gpa-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >GPA Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/grade-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Grade Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/bra-size-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Bra Size Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/shoe-size-conversion-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Shoe Size Conversion</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/tip-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Tip Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/golf-handicap-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Golf Handicap Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.calculator.net/sleep-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-center text-blue-600 text-sm font-semibold px-4 py-2 hover:underline"
+            >Sleep Calculator</a
+          >
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer
+    class="mt-20 border-t border-gray-300 text-gray-600 text-xs px-36 py-4 flex flex-wrap justify-center gap-2"
+  >
+    <a href="#" class="hover:underline">about us</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">sitemap</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">terms of use</a>
+    <span>|</span>
+    <a href="#" class="hover:underline">privacy policy</a>
+    <span>|</span>
+    <span>© 2008 - 2025</span>
+    <a href="#" class="hover:underline">calculator.net</a>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const calcItems = document.querySelectorAll("#calcItems li");
+
+    function filterCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+      calcItems.forEach((li) => {
+        const text = li.textContent.toLowerCase();
+        if (text.includes(query)) {
+          li.style.display = "";
+        } else {
+          li.style.display = "none";
+        }
+      });
+    }
+
+    searchBtn.addEventListener("click", filterCalculators);
+
+    // Also allow pressing Enter key in input to trigger search
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        filterCalculators();
+      }
+    });
+  </script>
+</body>
+</html>

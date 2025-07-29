@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex items-center space-x-4 p-4 max-w-7xl mx-auto">
+    <div class="font-semibold text-lg select-none">Calculator.online</div>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent w-60"
+      aria-label="Search calculator"
+    />
+    <button
+      id="searchBtn"
+      class="bg-purple-700 text-white px-5 py-2 rounded-md hover:bg-purple-800 transition"
+      aria-label="Search button"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4">
+    <h2 class="text-lg mb-4">Top Various Measurements/Units Calculator</h2>
+
+    <section
+      class="border-2 border-purple-700 rounded-xl w-72 p-4 space-y-2"
+      aria-label="Various Measurements and Units Calculators"
+    >
+      <h3 class="text-sm font-semibold mb-2">1.Various Measurements/Units</h3>
+      <ul id="calculatorList" class="space-y-2">
+        <li>
+          <a
+            href="https://calculator.net/height-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Height Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/conversion-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Conversion Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/gdp-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >GDP Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/density-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Density Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/mass-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Mass Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/weight-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Weight Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/speed-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Speed Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/molarity-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Molarity Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/molecular-weight-calculator.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Molecular Weight Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://calculator.net/roman-numeral-converter.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block border border-gray-300 rounded-full text-blue-700 text-center text-sm font-semibold py-2 hover:underline"
+            >Roman Numeral Converter</a
+          >
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 mt-20 border-t border-gray-300 py-4 text-xs text-gray-600 flex flex-wrap justify-center gap-x-2 gap-y-1 select-none">
+    <span>about us |</span>
+    <span>sitemap|</span>
+    <span>terms of use |</span>
+    <span>privacy policy</span>
+    <span>© 2008 - 2025</span>
+    <span>calculator.net</span>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const calculatorList = document.getElementById('calculatorList');
+    const items = Array.from(calculatorList.getElementsByTagName('li'));
+
+    function filterCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        // Show all if empty
+        items.forEach((li) => (li.style.display = 'block'));
+        return;
+      }
+      items.forEach((li) => {
+        const text = li.textContent.toLowerCase();
+        if (text.includes(query)) {
+          li.style.display = 'block';
+        } else {
+          li.style.display = 'none';
+        }
+      });
+    }
+
+    searchBtn.addEventListener('click', filterCalculators);
+
+    // Also allow pressing Enter key in input to trigger search
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        filterCalculators();
+      }
+    });
+  </script>
+</body>
+</html>

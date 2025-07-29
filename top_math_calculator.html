@@ -1,0 +1,290 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    /* Custom font to mimic the screenshot's font style */
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex flex-wrap items-center justify-start gap-3 px-6 py-4 max-w-7xl mx-auto">
+    <div class="font-semibold text-lg select-none">Calculator.online</div>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-purple-700 w-60"
+      aria-label="Search calculators"
+    />
+    <button
+      id="searchButton"
+      class="bg-purple-700 text-white px-5 py-2 rounded-md hover:bg-purple-800 transition-colors"
+      type="button"
+      aria-label="Search button"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6">
+    <h2 class="text-xl font-semibold mb-4">Top Math Calculators</h2>
+    <div class="flex flex-wrap gap-6" id="calculatorsContainer">
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 max-w-xs w-full"
+        aria-label="Math calculators list 1"
+      >
+        <h3 class="font-bold text-center mb-4">1.Math</h3>
+        <ul class="space-y-2" id="list1">
+          <li>
+            <a
+              href="https://www.calculator.net/scientific-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Scientific Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/fraction-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Fraction Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/percentage-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Percentage Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/random-number-generator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Random Number Generator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/percent-error-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Percent Error Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/exponent-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Exponent Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/binary-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Binary Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/hex-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Hex Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/half-life-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Half-Life Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/quadratic-formula-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Quadratic Formula Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/log-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Log Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/ratio-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Ratio Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/root-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Root Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/least-common-multiple-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Least Common Multiple</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 max-w-xs w-full"
+        aria-label="Math calculators list 2"
+      >
+        <ul class="space-y-2" id="list2">
+          <li>
+            <a
+              href="https://www.calculator.net/greatest-common-factor-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Greatest Common Factor</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/factor-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Factor Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/rounding-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Rounding Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/matrix-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Matrix Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/scientific-notation-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Scientific Notation Calculator</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.calculator.net/big-number-calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-300 rounded-full px-4 py-1 text-blue-700 text-center text-sm font-semibold hover:underline"
+              >Big Number Calculator</a
+            >
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-6 mt-16 mb-6">
+    <hr class="border-gray-300 mb-3" />
+    <nav
+      class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-600 font-light select-none"
+      aria-label="Footer navigation"
+    >
+      <a href="#" class="hover:underline">about us</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">sitemap</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">terms of use</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">privacy policy</a>
+      <span>|</span>
+      <span>© 2008 - 2025</span>
+      <a href="#" class="hover:underline">calculator.net</a>
+    </nav>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const lists = [document.getElementById("list1"), document.getElementById("list2")];
+
+    function searchCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      lists.forEach((list) => {
+        const items = list.querySelectorAll("li");
+        items.forEach((item) => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(query)) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    }
+
+    searchButton.addEventListener("click", searchCalculators);
+
+    // Also allow pressing Enter key in input to trigger search
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchCalculators();
+      }
+    });
+  </script>
+</body>
+</html>

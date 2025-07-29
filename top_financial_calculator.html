@@ -1,0 +1,368 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  <header class="flex flex-wrap items-center justify-start gap-3 px-6 py-4 max-w-[1280px] mx-auto">
+    <h1 class="font-semibold text-lg select-none">Calculator.online</h1>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search calculator by cc"
+      class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent w-[220px]"
+      aria-label="Search calculators"
+    />
+    <button
+      id="searchBtn"
+      class="bg-purple-700 text-white px-5 py-2 rounded-md hover:bg-purple-800 transition-colors select-none"
+      type="button"
+      aria-label="Search"
+    >
+      Search
+    </button>
+  </header>
+
+  <main class="max-w-[1280px] mx-auto px-6 pb-10">
+    <h2 class="text-xl font-semibold mb-4 select-none">Top Financial Calculators</h2>
+    <div id="calculatorColumns" class="flex flex-wrap justify-between gap-6">
+      <!-- Column 1 -->
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 w-[220px] flex flex-col gap-2 select-none"
+      >
+        <h3 class="font-semibold text-sm mb-2">1. Mortgage and Real Estate</h3>
+        <a href="https://www.calculator.net/mortgage-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Mortgage Calculator">
+          Mortgage Calculator
+        </a>
+        <a href="https://www.calculator.net/amortization-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Amortization Calculator">
+          Amortization Calculator
+        </a>
+        <a href="https://www.calculator.net/mortgage-payoff-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Mortgage Payoff Calculator">
+          Mortgage Payoff Calculator
+        </a>
+        <a href="https://www.calculator.net/house-affordability-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="House Affordability Calculator">
+          House Affordability Calculator
+        </a>
+        <a href="https://www.calculator.net/rent-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Rent Calculator">
+          Rent Calculator
+        </a>
+        <a href="https://www.calculator.net/debt-to-income-ratio-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Debt-to-Income Ratio Calculator">
+          Debt-to-Income Ratio Calculator
+        </a>
+        <a href="https://www.calculator.net/real-estate-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Real Estate Calculator">
+          Real Estate Calculator
+        </a>
+        <a href="https://www.calculator.net/refinance-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Refinance Calculator">
+          Refinance Calculator
+        </a>
+        <a href="https://www.calculator.net/rental-property-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Rental Property Calculator">
+          Rental Property Calculator
+        </a>
+        <a href="https://www.calculator.net/apr-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="APR Calculator">
+          APR Calculator
+        </a>
+        <a href="https://www.calculator.net/fha-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="FHA Loan Calculator">
+          FHA Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/va-mortgage-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="VA Mortgage Calculator">
+          VA Mortgage Calculator
+        </a>
+        <a href="https://www.calculator.net/down-payment-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Down Payment Calculator">
+          Down Payment Calculator
+        </a>
+        <a href="https://www.calculator.net/rent-vs-buy-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Rent vs. Buy Calculator">
+          Rent vs. Buy Calculator
+        </a>
+      </section>
+
+      <!-- Column 2 -->
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 w-[220px] flex flex-col gap-2 select-none"
+      >
+        <h3 class="font-semibold text-sm mb-2">2. Retirement</h3>
+        <a href="https://www.calculator.net/retirement-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Retirement Calculator">
+          Retirement Calculator
+        </a>
+        <a href="https://www.calculator.net/401k-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="401K Calculator">
+          401K Calculator
+        </a>
+        <a href="https://www.calculator.net/pension-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Pension Calculator">
+          Pension Calculator
+        </a>
+        <a href="https://www.calculator.net/social-security-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Social Security Calculato">
+          Social Security Calculato
+        </a>
+        <a href="https://www.calculator.net/annuity-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Annuity Calculator">
+          Annuity Calculator
+        </a>
+        <a href="https://www.calculator.net/annuity-payoff-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Annuity Payoff Calculator">
+          Annuity Payoff Calculator
+        </a>
+        <a href="https://www.calculator.net/roth-ira-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Roth IRA Calculator">
+          Roth IRA Calculator
+        </a>
+        <a href="https://www.calculator.net/ira-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="IRA Calculator">
+          IRA Calculator
+        </a>
+        <a href="https://www.calculator.net/rmd-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="RMD Calculator">
+          RMD Calculator
+        </a>
+        <a href="https://www.calculator.net/apr-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="APR Calculator">
+          APR Calculator
+        </a>
+        <h4 class="font-semibold text-sm mt-2 mb-1">3.Auto</h4>
+        <a href="https://www.calculator.net/auto-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Auto Loan Calculator">
+          Auto Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/cash-back-or-low-interest.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Cash Back or Low Interest">
+          Cash Back or Low Interest
+        </a>
+        <a href="https://www.calculator.net/auto-lease-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Auto Lease Calculator">
+          Auto Lease Calculator
+        </a>
+      </section>
+
+      <!-- Column 3 -->
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 w-[220px] flex flex-col gap-2 select-none"
+      >
+        <h3 class="font-semibold text-sm mb-2">4. Tax & Salary</h3>
+        <a href="https://www.calculator.net/income-tax-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Income Tax Calculator">
+          Income Tax Calculator
+        </a>
+        <a href="https://www.calculator.net/salary-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Salary Calculator">
+          Salary Calculator
+        </a>
+        <a href="https://www.calculator.net/marriage-tax-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Marriage Tax Calculator">
+          Marriage Tax Calculator
+        </a>
+        <a href="https://www.calculator.net/estate-tax-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Estate Tax Calculator">
+          Estate Tax Calculator
+        </a>
+        <a href="https://www.calculator.net/take-home-paycheck-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Take-Home-Paycheck Calculator">
+          Take-Home-Paycheck Calculator
+        </a>
+        <h4 class="font-semibold text-sm mt-2 mb-1">5. Investment</h4>
+        <a href="https://www.calculator.net/interest-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Interest Calculator">
+          Interest Calculator
+        </a>
+        <a href="https://www.calculator.net/investment-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Investment Calculator">
+          Investment Calculator
+        </a>
+        <a href="https://www.calculator.net/finance-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Finance Calculator">
+          Finance Calculator
+        </a>
+        <a href="https://www.calculator.net/compound-interest-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Compound Interest Calculator">
+          Compound Interest Calculator
+        </a>
+        <a href="https://www.calculator.net/interest-rate-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Interest Rate Calculator">
+          Interest Rate Calculator
+        </a>
+        <a href="https://www.calculator.net/savings-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Savings Calculator">
+          Savings Calculator
+        </a>
+        <a href="https://www.calculator.net/simple-interest-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Simple Interest Calculator">
+          Simple Interest Calculator
+        </a>
+        <a href="https://www.calculator.net/cd-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="CD Calculator">
+          CD Calculator
+        </a>
+      </section>
+
+      <!-- Column 4 -->
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 w-[220px] flex flex-col gap-2 select-none"
+      >
+        <a href="https://www.calculator.net/bond-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Bond Calculator">
+          <b>Bond Calculator</b>
+        </a>
+        <a href="https://www.calculator.net/average-return-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Average Return Calculator">
+          Average Return Calculator
+        </a>
+        <a href="https://www.calculator.net/irr-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="IRR Calculator">
+          IRR Calculator
+        </a>
+        <a href="https://www.calculator.net/roi-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="ROI Calculator">
+          ROI Calculator
+        </a>
+        <a href="https://www.calculator.net/payback-period-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Payback Period Calculator">
+          Payback Period Calculator
+        </a>
+        <a href="https://www.calculator.net/present-value-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Present Value Calculator">
+          Present Value Calculator
+        </a>
+        <a href="https://www.calculator.net/future-value-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Future Value Calculator">
+          Future Value Calculator
+        </a>
+        <h4 class="font-semibold text-sm mt-2 mb-1">6. Other</h4>
+        <a href="https://www.calculator.net/loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Loan Calculator">
+          Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/payment-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Payment Calculator">
+          Payment Calculator
+        </a>
+        <a href="https://www.calculator.net/currency-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Currency Calculator">
+          Currency Calculator
+        </a>
+        <a href="https://www.calculator.net/inflation-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Inflation Calculator">
+          Inflation Calculator
+        </a>
+        <a href="https://www.calculator.net/sales-tax-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Sales Tax Calculator">
+          Sales Tax Calculator
+        </a>
+        <a href="https://www.calculator.net/credit-card-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Credit Card Calculator">
+          Credit Card Calculator
+        </a>
+        <a href="https://www.calculator.net/credit-card-payoff-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Credit Card Payoff Calculator">
+          Credit Card Payoff Calculator
+        </a>
+      </section>
+
+      <!-- Column 5 -->
+      <section
+        class="border-2 border-purple-700 rounded-xl p-4 w-[220px] flex flex-col gap-2 select-none"
+      >
+        <a href="https://www.calculator.net/debt-payoff-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Debt Payoff Calculator">
+          <b>Debt Payoff Calculator</b>
+        </a>
+        <a href="https://www.calculator.net/debt-consolidation-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Debt Consolidation Calculator">
+          Debt Consolidation Calculator
+        </a>
+        <a href="https://www.calculator.net/repayment-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Repayment Calculator">
+          Repayment Calculator
+        </a>
+        <a href="https://www.calculator.net/student-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Student Loan Calculator">
+          Student Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/college-cost-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="College Cost Calculator">
+          College Cost Calculator
+        </a>
+        <a href="https://www.calculator.net/vat-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="VAT Calculator">
+          VAT Calculator
+        </a>
+        <a href="https://www.calculator.net/depreciation-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Depreciation Calculator">
+          Depreciation Calculator
+        </a>
+        <a href="https://www.calculator.net/margin-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Margin Calculator">
+          Margin Calculator
+        </a>
+        <a href="https://www.calculator.net/discount-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Discount Calculator">
+          Discount Calculator
+        </a>
+        <a href="https://www.calculator.net/business-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Business Loan Calculator">
+          Business Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/personal-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Personal Loan Calculator">
+          Personal Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/boat-loan-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Boat Loan Calculator">
+          Boat Loan Calculator
+        </a>
+        <a href="https://www.calculator.net/lease-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Lease Calculator">
+          Lease Calculator
+        </a>
+        <a href="https://www.calculator.net/budget-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Budget Calculator">
+          Budget Calculator
+        </a>
+        <a href="https://www.calculator.net/commission-calculator.html" target="_blank" rel="noopener" class="block border border-gray-300 rounded-full text-blue-600 text-xs text-center py-1 px-3 hover:underline" data-name="Commission Calculator">
+          Commission Calculator
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="max-w-[1280px] mx-auto px-6 py-6 border-t border-gray-300 text-xs text-gray-600 select-none">
+    <nav class="flex flex-wrap justify-center gap-2">
+      <a href="#" class="hover:underline">about us</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">sitemap</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">terms of use</a>
+      <span>|</span>
+      <a href="#" class="hover:underline">privacy policy</a>
+      <span>|</span>
+      <span>© 2008 - 2025</span>
+      <a href="#" class="hover:underline">calculator.net</a>
+    </nav>
+  </footer>
+
+  <script>
+    (() => {
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const columns = document.getElementById('calculatorColumns');
+      const sections = Array.from(columns.querySelectorAll('section'));
+
+      function searchCalculators() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (!query) {
+          // Show all if query is empty
+          sections.forEach(section => {
+            section.style.display = 'flex';
+            // Show all links inside
+            const links = section.querySelectorAll('a');
+            links.forEach(link => (link.style.display = 'block'));
+            // Show all headings
+            const headings = section.querySelectorAll('h3, h4');
+            headings.forEach(h => (h.style.display = 'block'));
+          });
+          return;
+        }
+
+        sections.forEach(section => {
+          // Get all links in this section
+          const links = Array.from(section.querySelectorAll('a'));
+          // Filter links that match query
+          const matchedLinks = links.filter(link =>
+            link.dataset.name.toLowerCase().includes(query)
+          );
+
+          if (matchedLinks.length === 0) {
+            // Hide entire section if no matches
+            section.style.display = 'none';
+          } else {
+            // Show section
+            section.style.display = 'flex';
+
+            // Hide all links first
+            links.forEach(link => (link.style.display = 'none'));
+            // Show only matched links
+            matchedLinks.forEach(link => (link.style.display = 'block'));
+
+            // Show/hide headings inside section based on visible links
+            // Show all h3 and h4 if any link visible
+            const headings = section.querySelectorAll('h3, h4');
+            headings.forEach(h => (h.style.display = 'block'));
+          }
+        });
+      }
+
+      searchBtn.addEventListener('click', searchCalculators);
+
+      // Also allow pressing Enter key in input to trigger search
+      searchInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          searchCalculators();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

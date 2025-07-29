@@ -1,0 +1,227 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Calculator.online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white">
+  <div class="max-w-5xl mx-auto p-4">
+   <header class="flex flex-wrap items-center justify-start gap-2 mb-6">
+    <h1 class="text-2xl font-extrabold text-black select-none">
+     Calculator.online
+    </h1>
+    <input aria-label="Search calculator" class="border border-gray-300 rounded-md px-3 py-2 text-gray-400 w-[280px] focus:outline-none focus:ring-2 focus:ring-purple-700" id="searchInput" placeholder="Search calculator by cc" type="text"/>
+    <button class="bg-purple-700 text-white px-5 py-2 rounded-md font-semibold hover:bg-purple-800 transition" id="searchBtn">
+     Search
+    </button>
+   </header>
+   <section class="mb-6">
+    <h2 class="font-bold text-blue-900 text-lg mb-1">
+     Fitness and Health Calculators
+    </h2>
+    <p class="text-sm text-gray-700 mb-4">
+     The following is a complete list of our fitness and health related calculators.
+    </p>
+    <div class="flex flex-wrap gap-12" id="calculatorList">
+     <div class="min-w-[180px]">
+      <h3 class="font-bold mb-1">
+       Fitness
+      </h3>
+      <ul class="list-none space-y-1 text-blue-700 text-sm">
+       <li><a href="https://www.calculator.net/bmi-calculator.html" target="_blank" rel="noopener" data-name="BMI Calculator">BMI Calculator</a></li>
+       <li><a href="https://www.calculator.net/calorie-calculator.html" target="_blank" rel="noopener" data-name="Calorie Calculator">Calorie Calculator</a></li>
+       <li><a href="https://www.calculator.net/body-fat-calculator.html" target="_blank" rel="noopener" data-name="Body Fat Calculator">Body Fat Calculator</a></li>
+       <li><a href="https://www.calculator.net/bmr-calculator.html" target="_blank" rel="noopener" data-name="BMR Calculator">BMR Calculator</a></li>
+       <li><a href="https://www.calculator.net/ideal-weight-calculator.html" target="_blank" rel="noopener" data-name="Ideal Weight Calculator">Ideal Weight Calculator</a></li>
+       <li><a href="https://www.calculator.net/pace-calculator.html" target="_blank" rel="noopener" data-name="Pace Calculator">Pace Calculator</a></li>
+       <li><a href="https://www.calculator.net/army-body-fat-calculator.html" target="_blank" rel="noopener" data-name="Army Body Fat Calculator">Army Body Fat Calculator</a></li>
+       <li><a href="https://www.calculator.net/lean-body-mass-calculator.html" target="_blank" rel="noopener" data-name="Lean Body Mass Calculator">Lean Body Mass Calculator</a></li>
+       <li><a href="https://www.calculator.net/healthy-weight-calculator.html" target="_blank" rel="noopener" data-name="Healthy Weight Calculator">Healthy Weight Calculator</a></li>
+       <li><a href="https://www.calculator.net/calories-burned-calculator.html" target="_blank" rel="noopener" data-name="Calories Burned Calculator">Calories Burned Calculator</a></li>
+       <li><a href="https://www.calculator.net/one-rep-max-calculator.html" target="_blank" rel="noopener" data-name="One Rep Max Calculator">One Rep Max Calculator</a></li>
+       <li><a href="https://www.calculator.net/target-heart-rate-calculator.html" target="_blank" rel="noopener" data-name="Target Heart Rate Calculator">Target Heart Rate Calculator</a></li>
+      </ul>
+     </div>
+     <div class="min-w-[180px]">
+      <h3 class="font-bold mb-1">
+       Pregnancy
+      </h3>
+      <ul class="list-none space-y-1 text-blue-700 text-sm">
+       <li><a href="https://www.calculator.net/pregnancy-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Calculator">Pregnancy Calculator</a></li>
+       <li><a href="https://www.calculator.net/pregnancy-weight-gain-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Weight Gain Calculator">Pregnancy Weight Gain Calculator</a></li>
+       <li><a href="https://www.calculator.net/pregnancy-conception-calculator.html" target="_blank" rel="noopener" data-name="Pregnancy Conception Calculator">Pregnancy Conception Calculator</a></li>
+       <li><a href="https://www.calculator.net/due-date-calculator.html" target="_blank" rel="noopener" data-name="Due Date Calculator">Due Date Calculator</a></li>
+       <li><a href="https://www.calculator.net/ovulation-calculator.html" target="_blank" rel="noopener" data-name="Ovulation Calculator">Ovulation Calculator</a></li>
+       <li><a href="https://www.calculator.net/conception-calculator.html" target="_blank" rel="noopener" data-name="Conception Calculator">Conception Calculator</a></li>
+       <li><a href="https://www.calculator.net/period-calculator.html" target="_blank" rel="noopener" data-name="Period Calculator">Period Calculator</a></li>
+      </ul>
+     </div>
+     <div class="min-w-[180px]">
+      <h3 class="font-bold mb-1">
+       Other
+      </h3>
+      <ul class="list-none space-y-1 text-blue-700 text-sm">
+       <li><a href="https://www.calculator.net/macro-calculator.html" target="_blank" rel="noopener" data-name="Macro Calculator">Macro Calculator</a></li>
+       <li><a href="https://www.calculator.net/carbohydrate-calculator.html" target="_blank" rel="noopener" data-name="Carbohydrate Calculator">Carbohydrate Calculator</a></li>
+       <li><a href="https://www.calculator.net/protein-calculator.html" target="_blank" rel="noopener" data-name="Protein Calculator">Protein Calculator</a></li>
+       <li><a href="https://www.calculator.net/fat-intake-calculator.html" target="_blank" rel="noopener" data-name="Fat Intake Calculator">Fat Intake Calculator</a></li>
+       <li><a href="https://www.calculator.net/tdee-calculator.html" target="_blank" rel="noopener" data-name="TDEE Calculator">TDEE Calculator</a></li>
+       <li><a href="https://www.calculator.net/gfr-calculator.html" target="_blank" rel="noopener" data-name="GFR Calculator">GFR Calculator</a></li>
+       <li><a href="https://www.calculator.net/body-type-calculator.html" target="_blank" rel="noopener" data-name="Body Type Calculator">Body Type Calculator</a></li>
+       <li><a href="https://www.calculator.net/body-surface-area-calculator.html" target="_blank" rel="noopener" data-name="Body Surface Area Calculator">Body Surface Area Calculator</a></li>
+       <li><a href="https://www.calculator.net/bac-calculator.html" target="_blank" rel="noopener" data-name="BAC Calculator">BAC Calculator</a></li>
+      </ul>
+     </div>
+     <div class="min-w-[180px]">
+      <img alt="Image showing silhouettes of animals with colorful aura background and text 'Which animal aura do you have?'" class="mb-2" height="220" src="https://storage.googleapis.com/a1aa/image/1a305757-1ce5-4ffc-8d50-9f41e39459d4.jpg" width="180"/>
+      <button class="border border-black rounded-md px-3 py-1 text-xs font-bold tracking-widest hover:bg-black hover:text-white transition">
+       TAKE TEST
+      </button>
+     </div>
+    </div>
+   </section>
+   <section class="mb-6 max-w-xs">
+    <div class="flex mb-2">
+     <input aria-label="Search calculator" class="border border-gray-400 rounded-l-md px-2 py-1 w-full text-sm focus:outline-none" id="searchInputRight" type="text"/>
+     <button class="bg-blue-800 text-white px-3 py-1 rounded-r-md text-sm font-semibold hover:bg-blue-900 transition" id="searchBtnRight">
+      Search
+     </button>
+    </div>
+    <div class="border border-blue-800 text-xs">
+     <div class="bg-blue-800 text-white font-bold px-2 py-1">
+      Fitness and Health Calculators
+     </div>
+     <div class="grid grid-cols-2 gap-x-4 gap-y-1 px-2 py-2 text-blue-700" id="calculatorListRight">
+      <a href="https://www.calculator.net/bmi-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="BMI">BMI</a>
+      <a href="https://www.calculator.net/calorie-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Calorie">Calorie</a>
+      <a href="https://www.calculator.net/body-fat-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Body Fat">Body Fat</a>
+      <a href="https://www.calculator.net/bmr-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="BMR">BMR</a>
+      <a href="https://www.calculator.net/macro-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Macro">Macro</a>
+      <a href="https://www.calculator.net/ideal-weight-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Ideal Weight">Ideal Weight</a>
+      <a href="https://www.calculator.net/pregnancy-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Pregnancy">Pregnancy</a>
+      <a href="https://www.calculator.net/pregnancy-weight-gain-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Pregnancy Weight Gain">Pregnancy Weight Gain</a>
+      <a href="https://www.calculator.net/pregnancy-conception-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Pregnancy Conception">Pregnancy Conception</a>
+      <a href="https://www.calculator.net/due-date-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Due Date">Due Date</a>
+      <a href="https://www.calculator.net/pace-calculator.html" target="_blank" rel="noopener" class="hover:underline" data-name="Pace">Pace</a>
+      <a href="https://www.calculator.net/fitness-and-health-calculators.html" target="_blank" rel="noopener" class="hover:underline" data-name="More Fitness and Health Calculators">More Fitness and Health Calculators</a>
+     </div>
+     <div class="bg-gray-200 border-t border-blue-800 text-center text-xs text-blue-700 py-1">
+      <a href="https://www.calculator.net/financial-calculators.html" target="_blank" rel="noopener" class="hover:underline">
+       Financial
+      </a>
+      |
+      <a href="https://www.calculator.net/fitness-and-health-calculators.html" target="_blank" rel="noopener" class="hover:underline">
+       Fitness and Health
+      </a>
+      |
+      <a href="https://www.calculator.net/math-calculators.html" target="_blank" rel="noopener" class="hover:underline">
+       Math
+      </a>
+      |
+      <a href="https://www.calculator.net/other-calculators.html" target="_blank" rel="noopener" class="hover:underline">
+       Other
+      </a>
+     </div>
+    </div>
+   </section>
+  </div>
+    <footer class="border-t border-gray-300 mt-8 py-2 text-center text-xs text-gray-600 select-none">
+   <div class="max-w-5xl mx-auto text-center text-xs text-gray-700 space-x-2">
+    <a href="https://www.calculator.net/about-us.html" target="_blank" rel="noopener" class="hover:underline">
+     about us
+    </a>
+    |
+    <a href="https://www.calculator.net/sitemap.html" target="_blank" rel="noopener" class="hover:underline">
+     sitemap
+    </a>
+    |
+    <a href="https://www.calculator.net/terms-of-use.html" target="_blank" rel="noopener" class="hover:underline">
+     terms of use
+    </a>
+    |
+    <a href="https://www.calculator.net/privacy-policy.html" target="_blank" rel="noopener" class="hover:underline">
+     privacy policy
+    </a>
+    <span>
+     © 2008 - 2025
+    </span>
+    <a href="https://www.calculator.net" target="_blank" rel="noopener" class="hover:underline">
+     calculator.net
+    </a>
+   </div>
+  </footer>
+  <script>
+   // Search function for left search input and button
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const calculatorList = document.getElementById("calculatorList");
+
+    function searchCalculators() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        // Show all if empty
+        Array.from(calculatorList.querySelectorAll("a")).forEach(a => {
+          a.parentElement.style.display = "";
+        });
+        return;
+      }
+      Array.from(calculatorList.querySelectorAll("a")).forEach(a => {
+        const name = a.getAttribute("data-name").toLowerCase();
+        if (name.includes(query)) {
+          a.parentElement.style.display = "";
+        } else {
+          a.parentElement.style.display = "none";
+        }
+      });
+    }
+
+    searchBtn.addEventListener("click", searchCalculators);
+    searchInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        searchCalculators();
+      }
+    });
+
+    // Search function for right search input and button
+    const searchInputRight = document.getElementById("searchInputRight");
+    const searchBtnRight = document.getElementById("searchBtnRight");
+    const calculatorListRight = document.getElementById("calculatorListRight");
+
+    function searchCalculatorsRight() {
+      const query = searchInputRight.value.trim().toLowerCase();
+      if (!query) {
+        Array.from(calculatorListRight.querySelectorAll("a")).forEach(a => {
+          a.style.display = "";
+        });
+        return;
+      }
+      Array.from(calculatorListRight.querySelectorAll("a")).forEach(a => {
+        const name = a.getAttribute("data-name").toLowerCase();
+        if (name.includes(query)) {
+          a.style.display = "";
+        } else {
+          a.style.display = "none";
+        }
+      });
+    }
+
+    searchBtnRight.addEventListener("click", searchCalculatorsRight);
+    searchInputRight.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        searchCalculatorsRight();
+      }
+    });
+  </script>
+ </body>
+</html>
